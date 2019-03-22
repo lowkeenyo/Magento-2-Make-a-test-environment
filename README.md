@@ -10,13 +10,14 @@ EXAMPLE SSH COMMAND FROM BEING IN THE PARENT FOLDER OF PUBLIC_HTML:
 ``` Rsync -avz public_html chemtec1@chemtechniek.mag2.skyberatedev.nl:public_html```
 
 Copy live environment to sub-folder with SSH and exclude crap: 
-rsync -vza --delete --delete-excluded \
+
+``rsync -vza --delete --delete-excluded \
 --exclude /var/report/ \
 --exclude /var/session/ \
 --exclude /var/log/ \
 --exclude \*.sql \
 --exclude \*.zip \
-/data/web/magento2/ /data/web/magento2_staging/
+/data/web/magento2/ /data/web/magento2_staging/``
  
  Possible errorino:
  - mkdir not allowed -> on the staging make an empty folder, 750/755 folder permissions
@@ -30,8 +31,9 @@ rsync -vza --delete --delete-excluded \
 Gotta copy that DATABASE from live to test! 
 
 Dump the whole database through ssh with: 
-`` mysqldump --opt -Q -h dbintxxxxx -u uxxxxx_xxxx -p dbxxxx_xxxx > dump.sql(give the database pass)
-  ("dbintxxxxx" is the hostname of live site, "uxxxxx_xxxx" is db username, "dbxxxx_xxxx" is db name)``
+
+`` mysqldump --opt -Q -h dbintxxxxx -u uxxxxx_xxxx -p dbxxxx_xxxx > dump.sql(give the database pass)``
+  ("dbintxxxxx" is the hostname of live site, "uxxxxx_xxxx" is db username, "dbxxxx_xxxx" is db name)
 
 Now now now, the dump.sql is in the root of the hosting, not the public_html(or other root of website folder). 
 
@@ -69,10 +71,10 @@ Done with this now. typ exit to leave the mysql SSH thing.
  cookie_domain value is test.mag2.skeskedev.nl to make it work
  
 "Delete the VALUE of the following (if you do not see some of them, just ignore. It might not have been setup yet, so you can omit it):
-web/cookie/cookie_domain
-web/cookie/cookie_httponly
-web/cookie/cookie_lifetime
-web/cookie/cookie_path"
+* web/cookie/cookie_domain
+* web/cookie/cookie_httponly
+* web/cookie/cookie_lifetime
+* web/cookie/cookie_path"
  
   ---------------------------------------------------------
   
@@ -83,13 +85,14 @@ web/cookie/cookie_path"
 ## STEP 3 ##
 Almost there! We need to connect magento to our database now. 
 
+
 app/etc/env.php - You sould have backed this file up in step 1 from the TEST hosting. 
 Download the newly added rsync'd file app/etc/env.php from your TEST hosting and open both files. 
 
-app/etc/env.php backup file - backed up one has information like: dbname, username, password that we need to put back into our newly added env.php file on the hosting. 
-app/etc/env.php - new one has the LIVE data, change those three lines back to the information in the backup env.php file.
+1) app/etc/env.php backup file - backed up one has information like: dbname, username, password that we need to put back into our newly added env.php file on the hosting. 
+2) app/etc/env.php - new one has the LIVE data, change those three lines back to the information in the backup env.php file.
 
-At the bottom also update the     'http_cache_hosts' to your TEST url without http or www (same as cookie_domain)
+At the bottom also update the 'http_cache_hosts' to your TEST url without http or www (same as cookie_domain)
 
 Updated your env.php file? Put it back in the app/etc/ folder on your TEST hosting. 
 
@@ -103,9 +106,13 @@ Updated your env.php file? Put it back in the app/etc/ folder on your TEST hosti
 ## STEP 4 ##
 Lets use SSH once more to get our test environment working correctly, going to frontend now should load the website but could be not so functional.
 
+
 php bin/magento setup:upgrade
+
 php bin/magento setup:di:compile
-php bin/magento setup:static-content:deploy (add -f in case of developer mode and static content missing) 
+
+php bin/magento setup:static-content:deploy 
+(add -f in case of developer mode and static content missing) 
 
  Should be all! 
  
