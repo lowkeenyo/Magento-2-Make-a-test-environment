@@ -43,6 +43,7 @@ With ssh go to the correct folder and use: (root of host used in this example)
 ``mysql -h dbintxxxxx -u uxxxxx_xxxx -D dbxxxx_xxxx -p``
 
    ("dbintxxxxx" is the hostname of live site, "uxxxxx_xxxx" is db username, "dbxxxx_xxxx" is db name)
+   
 Enter DB password and you should enter the mysql side of things, try the following commands: 
 1. SET FOREIGN_KEY_CHECKS = 0;
 2. source dump.sql;
@@ -117,8 +118,8 @@ php bin/magento setup:static-content:deploy
  Should be all! 
  
  
- Extra informations:
- https://www.byte.nl/kennisbank/website-uitbreidingen/testomgeving-website-maken
- https://support.hypernode.com/knowledgebase/using-a-basic-staging-environment-magento2/#How_to_make_a_copy_of_a_live_site
- https://www.byte.nl/kennisbank/back-ups/magento-back-up-maken-en-terugplaatsen-via-shell
- https://magento.stackexchange.com/questions/160775/solved-magento-2-unable-to-login-to-admin-no-error-message-stuck-at-login
+## Extra informations:##
+1) https://www.byte.nl/kennisbank/website-uitbreidingen/testomgeving-website-maken
+2) https://support.hypernode.com/knowledgebase/using-a-basic-staging-environment-magento2/#How_to_make_a_copy_of_a_live_site
+3) https://www.byte.nl/kennisbank/back-ups/magento-back-up-maken-en-terugplaatsen-via-shell
+4) https://magento.stackexchange.com/questions/160775/solved-magento-2-unable-to-login-to-admin-no-error-message-stuck-at-login
