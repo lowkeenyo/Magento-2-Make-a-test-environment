@@ -118,7 +118,7 @@ php bin/magento setup:static-content:deploy
  Should be all! 
  
  
-## Extra informations:##
+## Extra informations:
 1) https://www.byte.nl/kennisbank/website-uitbreidingen/testomgeving-website-maken
 2) https://support.hypernode.com/knowledgebase/using-a-basic-staging-environment-magento2/#How_to_make_a_copy_of_a_live_site
 3) https://www.byte.nl/kennisbank/back-ups/magento-back-up-maken-en-terugplaatsen-via-shell
