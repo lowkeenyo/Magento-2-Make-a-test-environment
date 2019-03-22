@@ -5,8 +5,8 @@ Magento 2.2+ allround development commands and some other useful stuff like clon
 *******COPY MAGENTO ENVIRONMENT************
 Copy live environment to test through SSH to other hosting: 
 
--------------------------STEP 1-------------------------
-
+--------------------------------------------------
+STEP 1
 From your TEST environment backup the app/etc/env.php file for later use in step 3. 
 
 EXAMPLE SSH COMMAND FROM BEING IN THE PARENT FOLDER OF PUBLIC_HTML: 
@@ -26,7 +26,8 @@ rsync -vza --delete --delete-excluded \
   - Dont want to delete the main folder? rename it!
  - running out of server space -> clean up the live environment and exclude media folder?
  
--------------------------STEP 2-------------------------
+--------------------------------------------------
+STEP 2
 ---(im assuming there is already an empty magento installation working on our TEST server)
 Gotta copy that DATABASE from live to test! 
 Dump the whole database through ssh with: 
@@ -53,7 +54,8 @@ Done with this now. typ exit to leave the mysql SSH thing.
  1) Copy of the LIVE hosting documents and files to our TEST hosting with the thank of rsync
  2) Copy of the LIVE database into our TEST database
  
- -------------------------STEP 2.5-------------------------
+ --------------------------------------------------
+ STEP 2.5
  Lets take half a step, we got to adjust our LIVE database in our TEST hosting. 
  1) go to your database (phpadmin in my case)
  2) find core_config_data table and select it
@@ -77,7 +79,8 @@ web/cookie/cookie_path"
  So now we have: 
  1) A copy of the LIVE hosting to TEST hosting including adjusted database.
  
-  -------------------------STEP 3--------------------------
+  ---------------------------------------------------
+  STEP 3
 Almost there! We need to connect magento to our database now. 
 
 app/etc/env.php - You sould have backed this file up in step 1 from the TEST hosting. 
@@ -96,7 +99,8 @@ Updated your env.php file? Put it back in the app/etc/ folder on your TEST hosti
  1) A copy of the LIVE hosting to TEST hosting including adjusted database.
  2) Connected magento with the database by adjusting ENV.PHP file to correct database information. 
  
-  -------------------------STEP 4--------------------------
+  ---------------------------------------------------
+  STEP 4
 Lets use SSH once more to get our test environment working correctly, going to frontend now should load the website but could be not so functional.
 
 php bin/magento setup:upgrade
