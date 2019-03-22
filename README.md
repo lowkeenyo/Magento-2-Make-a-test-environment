@@ -124,5 +124,5 @@ php bin/magento setup:static-content:deploy
 3) https://www.byte.nl/kennisbank/back-ups/magento-back-up-maken-en-terugplaatsen-via-shell
 4) https://magento.stackexchange.com/questions/160775/solved-magento-2-unable-to-login-to-admin-no-error-message-stuck-at-login
 
-Markup : ![picture alt](https://i1.sndcdn.com/avatars-000001477110-n24kq8-t500x500.jpg "Superloekino")
+![picture alt](https://i1.sndcdn.com/avatars-000001477110-n24kq8-t500x500.jpg "Superloekino")
 
