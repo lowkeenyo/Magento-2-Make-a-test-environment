@@ -6,11 +6,12 @@ __Magento 2.2+ how to clone your live webshop with minimal risk? RSYNC! Very fas
 ## STEP 1 ##
 From your TEST environment backup the app/etc/env.php file for later use in step 3. 
 
-EXAMPLE SSH COMMAND FROM BEING IN THE PARENT FOLDER OF PUBLIC_HTML: 
-``` Rsync -avz public_html chemtec1@chemtechniek.mag2.skyberatedev.nl:public_html```
+SSH COMMAND TO COPY TO ANOTHER SERVER
+``` Rsync -avz public_html username@yourhosting.com:public_html```
 
-Copy live environment to sub-folder with SSH and exclude crap: 
+public_html is the folder its gonna be copied in
 
+SSH COMMAND TO COPY TO SUB FOLDER ON SAME HOST, FURTHER STEPS FOR THIS ARE NOT EXPLAINED
 ``rsync -vza --delete --delete-excluded \
 --exclude /var/report/ \
 --exclude /var/session/ \
