@@ -9,7 +9,7 @@ From your TEST environment backup the app/etc/env.php file for later use in step
 SSH COMMAND TO COPY TO ANOTHER SERVER
 ``` Rsync -avz public_html username@yourhosting.com:public_html```
 
-public_html is the folder its gonna be copied in
+public_html is the folder its gonna be copied in, change it to whatever you want it to be
 
 SSH COMMAND TO COPY TO SUB FOLDER ON SAME HOST, FURTHER STEPS FOR THIS ARE NOT EXPLAINED
 ``rsync -vza --delete --delete-excluded \
